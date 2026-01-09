@@ -11,3 +11,8 @@
 **Issue**: Math.random() used for tie-breaking caused non-deterministic ordering
 **Fix**: Replaced with alphabetical sorting by title for stable results
 **Files**: logic.ts
+## 🐛 Bug #4: Double Dialog Opening
+
+**Issue**: Event bubbling caused edit/delete buttons to also trigger row click
+**Fix**: Added event.stopPropagation() to button handlers
+**Files**: TaskTable.tsx
