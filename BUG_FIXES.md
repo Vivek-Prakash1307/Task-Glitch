@@ -16,3 +16,8 @@
 **Issue**: Event bubbling caused edit/delete buttons to also trigger row click
 **Fix**: Added event.stopPropagation() to button handlers
 **Files**: TaskTable.tsx
+## 🐛 Bug #5: ROI Calculation Errors
+
+**Issue**: No validation for divide-by-zero or invalid inputs causing NaN/Infinity
+**Fix**: Added proper input validation and safe error handling
+**Files**: logic.ts
