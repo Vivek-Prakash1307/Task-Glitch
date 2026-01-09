@@ -7,3 +7,10 @@ dist
 /.idea
 /.vscode
 
+# TypeScript build artifacts
+*.tsbuildinfo
+
+# Vite build artifacts
+vite.config.d.ts
+vite.config.js
+

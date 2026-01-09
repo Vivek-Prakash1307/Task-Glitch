@@ -1,6 +1,15 @@
 export type Priority = 'High' | 'Medium' | 'Low';
 export type Status = 'Todo' | 'In Progress' | 'Done';
 
+export type TaskInput = {
+  title: string;
+  revenue: number;
+  timeTaken: number;
+  priority: Priority;
+  status: Status;
+  notes?: string;
+};
+
 export interface Task {
   id: string;
   title: string;

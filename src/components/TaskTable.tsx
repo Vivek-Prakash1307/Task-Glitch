@@ -3,13 +3,13 @@ import { Box, Button, Card, CardContent, IconButton, Stack, Table, TableBody, Ta
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import AddIcon from '@mui/icons-material/Add';
-import { DerivedTask, Task } from '@/types';
+import { DerivedTask, Task, Priority, Status, TaskInput } from '@/types';
 import TaskForm from '@/components/TaskForm';
 import TaskDetailsDialog from '@/components/TaskDetailsDialog';
 
 interface Props {
   tasks: DerivedTask[];
-  onAdd: (payload: Omit<Task, 'id'>) => void;
+  onAdd: (payload: TaskInput) => void;
   onUpdate: (id: string, patch: Partial<Task>) => void;
   onDelete: (id: string) => void;
 }
@@ -38,12 +38,13 @@ export default function TaskTable({ tasks, onAdd, onUpdate, onDelete }: Props) {
     onDelete(id);
   };
 
-  const handleSubmit = (value: Omit<Task, 'id'> & { id?: string }) => {
+  const handleSubmit = (value: TaskInput & { id?: string }) => {
     if (value.id) {
-      const { id, ...rest } = value as Task;
+      const { id, ...rest } = value;
       onUpdate(id, rest);
     } else {
-      onAdd(value as Omit<Task, 'id'>);
+      const { id, ...taskData } = value;
+      onAdd(taskData);
     }
   };
 
