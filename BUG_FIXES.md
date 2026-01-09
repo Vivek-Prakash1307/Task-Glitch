@@ -21,3 +21,20 @@
 **Issue**: No validation for divide-by-zero or invalid inputs causing NaN/Infinity
 **Fix**: Added proper input validation and safe error handling
 **Files**: logic.ts
+## 🔒 Security Fix: XSS Vulnerability
+
+**Issue**: dangerouslySetInnerHTML used on user notes creating XSS risk
+**Fix**: Replaced with safe text rendering
+**Files**: TaskTable.tsx
+
+## 🛡️ Data Integrity Fix: Malformed Data Injection
+
+**Issue**: Random injection of invalid tasks with undefined IDs and NaN values
+**Fix**: Removed malformed data injection and improved normalization
+**Files**: useTasks.ts
+
+## 📊 CSV Export Fix
+
+**Issue**: Unstable header order and improper CSV escaping
+**Fix**: Fixed header order and proper CSV value escaping
+**Files**: csv.ts
